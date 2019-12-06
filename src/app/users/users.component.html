@@ -5,7 +5,7 @@
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
-    <div class="form-group">
+     <div class="form-group">
         <label for="uname">Firstname:</label>
         <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="Enter Firstname" name="firstName" required>
         <div class="valid-feedback">Valid.</div>
@@ -35,6 +35,9 @@
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div> 
     </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button> 
   </form>
+  <!-- <button (click)="deleteUser(userForm.get('userName').value)" class="btn btn-danger">Delete user</button> -->
+  <!-- <button (click)="deleteUser('familyzoner')" class="btn btn-danger">Delete user</button> -->
+  
+  <button  class="btn btn-danger"><a (click)="deleteUser(userForm.get('userName').value)">Delete User</a></button>

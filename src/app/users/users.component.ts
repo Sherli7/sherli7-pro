@@ -23,13 +23,21 @@ export class UsersComponent implements OnInit {
   }
   
   onsubmit() {
-    console.log(this.userForm.value);
+    //console.log(this.userForm.value);
       this.UsersService.saveUser(
       this.userForm.value
       ).subscribe(data=>{
+        //console.log(data);
+      });
+    }
+
+    deleteUser(del){
+      console.log(del);
+      this.UsersService.deleteUser(del).subscribe(data=>{
         console.log(data);
       });
     }
+    
   ngOnInit() {
   }
 
