@@ -1,0 +1,23 @@
+<form class="needs-validation" [formGroup]="groupForm" (submit)="onsubmit()" novalidate>
+    <div class="form-group">
+      <label for="displayName">Group name:</label>
+      <input type="text" class="form-control" id="displayName" formControlName="displayName" placeholder="Enter Username" name="displayName" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+     <div class="form-group">
+        <label for="id">id:</label>
+        <input type="text"  class="form-control" id="id" placeholder="ex:GROUP_name_of_group" formControlName="id" name="id" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      
+    <div class="container">
+      <div>
+        <button type="submit" class="btn btn-primary">Insert group</button></div>
+    </div> 
+  </form>
+  <!-- <button (click)="deleteUser(userForm.get('userName').value)" class="btn btn-danger">Delete user</button> -->
+  <!-- <button (click)="deleteUser('familyzoner')" class="btn btn-danger">Delete user</button> -->
+  
+ 

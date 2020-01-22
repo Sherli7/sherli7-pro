@@ -1,0 +1,25 @@
+<form class="needs-validation" [formGroup]="siteForm" (submit)="onsubmit()" novalidate>
+    <div class="form-group">
+      <label for="shortName">shortname:</label>
+      <input type="text" class="form-control" id="shortName" formControlName="shortName" placeholder="Enter a shortName" name="shortName" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" formControlName="title" placeholder="Enter a Title" name="title" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" class="form-control" id="description" formControlName="description" placeholder="Enter a description" name="description" >
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+    <div>
+        <button type="submit" class="btn btn-danger">Save</button> 
+    </div>
+    
+  </form>

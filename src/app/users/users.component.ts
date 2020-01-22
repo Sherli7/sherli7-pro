@@ -37,6 +37,10 @@ export class UsersComponent implements OnInit {
         console.log(data);
       });
     }
+
+    updateSite(username){
+      
+    }
     
   ngOnInit() {
   }

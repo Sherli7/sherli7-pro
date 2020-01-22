@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { LoginService } from '../services/login.service';
+ import {NgxXml2jsonService} from 'ngx-xml2json';
 // import {xml2js} from "xml2js"; 
-import * as xml2js from 'xml2js';
-import { parseString } from 'xml2js';
-import { promise } from 'protractor';
-import { Parser } from '@angular/compiler/src/ml_parser/parser';
+// import * as xml2js from 'xml2js';
+// import { parseString } from 'xml2js';
+// import { promise } from 'protractor';
+// import { Parser } from '@angular/compiler/src/ml_parser/parser';
+import { from } from 'rxjs';
 // import { resolve } from 'url';
 
 
@@ -19,62 +21,25 @@ import { Parser } from '@angular/compiler/src/ml_parser/parser';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  public token: any;
- 
-
-  constructor(private fb: FormBuilder, private loginservice: LoginService) {
+  token:any;
+  constructor(private fb: FormBuilder, private loginservice: LoginService,private ngxXML2json: NgxXml2jsonService) {
     this.loginForm = this.fb.group({
       u: [""],
       pw: [""]
     });
-
   }
- 
-
   onsubmit() {
     console.log(this.loginForm.value);
-    this.loginservice.login(this.loginForm.get("u").value, this.loginForm.get("pw").value).subscribe(data => {    
-    //   var parseString = require('xml2js');
-
-    //   var parser = require('xml2js');
-    //   var json = parser.toJson(data);
-    //   console.log("to json -> %s", json);
-      
-    //   var x2js = new xml2js(data);
-  
-    //   var aftCnv = x2js.xml2js();
-    // console.log(aftCnv);
-
-    //   if(data!=null){
-    //    console.log(data);
-    //   }
-
-     
-    //   else{
-    //     console.log('Empty');
-    //   }
-     // parseString(data, (err, result) => {
-       
-
-        // this.loginservice.user(this.token)
-        //   .subscribe(
-        //     () => {
-        //       console.log('Enregistrement terminé !');
-        //     },
-        //     (error) => {
-        //       console.log('Erreur ! : ' + error);
-        //     }
-        //   );
-      // });
-    
-
-console.log(data);
-      
-    });
-    console.log(this.token);
+    this.loginservice.login(this.loginForm.get("u").value,this.loginForm.get("pw").value).subscribe(data => {    
+    console.log(data);
+    const parser=new DOMParser();
+    const xml=parser.parseFromString(data,'text/html');
+    const obj=this.ngxXML2json.xmlToJson(xml);
+    this.token=obj['HTML'].BODY.TICKET;
+    this.loginservice.setToken(this.token);
+    console.log(obj['HTML'].BODY.TICKET);
+      });
   }
-
-
   ngOnInit() {
     
   }

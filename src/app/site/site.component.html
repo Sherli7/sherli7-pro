@@ -1,0 +1,42 @@
+
+<div class="container">
+  <button class="btn btn-success" >
+    <a routerLink="./form" >Create a new Site</a>
+  </button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Shotname</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Visibility</th>
+        <th>Site Manager</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="success" *ngFor="let ste of site; let i=index">
+        <td>{{i+1}}</td>
+        <td >{{ste.shortName}}</td>
+        <td>{{ste.title}}</td>
+        <td>{{ste.description}}</td>
+        <td>{{ste.visibility}}</td>
+        <td>{{ste.siteManagers}}</td>
+        <td>
+          <div class="container" style="display:flex">
+            <div>
+                <button class="btn" >
+                      <img (onClick)="check($event);" (click)="deleteSite(ste.shortName)" height="20px" width="25px"  src="assets/images/icons8_delete_100px.png" alt="">
+                </button>
+            </div><div>
+              <button class="btn " >
+                    <img (onClick)="check($event);" (click)="updateSite(ste.shortName)" height="20px" width="25px"  src="assets/images/icons8_delete_100px.png" alt="">
+              </button>
+          </div>
+          </div>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

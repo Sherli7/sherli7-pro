@@ -1,0 +1,40 @@
+<app-create></app-create>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Nom</th>
+        <th>Identifiant</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="success" *ngFor="let grp of idname; let i=index">
+        <td>{{i+1}}</td>
+        <td>{{grp.entry.id}}</td>
+        <td>{{grp.entry.displayName}}</td>
+       
+        <td>
+          <div class="container" style="display:flex">
+            <div>
+              <button class="btn "> 
+                <!-- <a [routerLink]="['/update-user']" class="nav-link" (onChange)="check($event);" >Update User</a> -->
+                   </button>
+                   <button class="btn btn-success">
+                    <img (onChange)="check($event);" height="20px" width="25px"  src="assets/images/icons8_delete_100px.png" alt="">
+                </button>
+            </div>
+            <div>
+              <button class="btn btn-danger">
+                  <img (click)="deleteRow(grp.id)" height="20px" width="25px"  src="assets/images/icons8_delete_100px.png" alt="">
+              </button>
+            </div>
+            
+          </div>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,75 @@
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="success" *ngFor="let usrs of user; let i=index">
+        <td>{{usrs.userName}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">  
+        
+        <label class="text-muted">Multiple Select Picker</label>
+        <select class="custom-select" multiple *ngFor="let usrs of user">
+          <option selected>Open this select menu</option>
+          <option value="" (click)="check($event);" >{{usrs.userName}}</option>
+        </select>
+        
+        <label class="text-muted">File Browser</label>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="customFile">
+          <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+      </div>
+  </div>
+  
+</div>
+
+<form class="needs-validation" [formGroup]="userForm" (submit)="updateUser()" novalidate>
+    
+  <div class="form-group">     
+      <input type="text" class="form-control" id="userName" formControlName="userName" placeholder="Enter Username" name="userName" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+     <div class="form-group">
+        <label for="uname">Firstname:</label>
+     <input type="text" class="form-control" id="firstName" formControlName="firstName"  placeholder="Enter Firstname" name="firstName" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Lastname:</label>
+        <input type="text" class="form-control" id="lastname" formControlName="lastName" placeholder="Enter Lastname" name="lastName" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile:</label>
+        <input type="number" class="form-control" id="mobile" formControlName="mobile" placeholder="Mobile" name="mobile" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter Email" name="email" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+    <div class="container" style="display: flex;">
+      <div>
+        <button type="submit" class="btn btn-primary"><a (click)="updateUser(userForm.get('userName').value)">Update</a></button></div>
+      
+    </div> 
+  </form>
+  <!-- <button (click)="deleteUser(userForm.get('userName').value)" class="btn btn-danger">Delete user</button> -->
+  <!-- <button (click)="deleteUser('familyzoner')" class="btn btn-danger">Delete user</button> -->

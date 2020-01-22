@@ -1,1 +1,32 @@
-<app-users></app-users>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                                <a [routerLink]="['/login']" class="nav-link"><span
+                                                class="sr-only">(current)</span>Login</a>
+
+                        </li>
+                        <li class="nav-item">
+                                <a [routerLink]="['/users']" class="nav-link">users</a>
+                        </li>
+                        <li class="nav-item">
+                                <a [routerLink]="['/list-users']" class="nav-link">User's List</a>
+                        </li>
+                        <li class="nav-item">
+                                <a [routerLink]="['/folderlist']" class="nav-link">Folder List</a>
+                        </li>
+                        <li class="nav-item">
+                                <a [routerLink]="['/fileupload']" class="nav-link">File upload</a>
+                        </li>
+                        <li class="nav-item">
+                                <a [routerLink]="['/group']" class="nav-link">Group</a>
+                        </li>
+                        <li class="nav-item">
+                                <a [routerLink]="['/site']" class="nav-link">Sites</a>
+                        </li>
+                       
+                </ul>
+        </div>
+</nav>
+<br><br>
+<router-outlet></router-outlet>

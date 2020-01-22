@@ -35,9 +35,14 @@
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div> 
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button> 
+    <div class="container" style="display: flex;">
+      <div>
+        <button type="submit" class="btn btn-primary">Insert user</button></div>
+      <div>
+        <button type="reset" class="btn btn-danger">reset</button> </div>
+    </div> 
   </form>
   <!-- <button (click)="deleteUser(userForm.get('userName').value)" class="btn btn-danger">Delete user</button> -->
   <!-- <button (click)="deleteUser('familyzoner')" class="btn btn-danger">Delete user</button> -->
   
-  <button  class="btn btn-danger"><a (click)="deleteUser(userForm.get('userName').value)">Delete User</a></button>
+  <button  class="btn btn-success"><a (click)="deleteUser(userForm.get('userName').value)">Delete User by username</a></button>

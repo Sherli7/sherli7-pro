@@ -1,0 +1,9 @@
+
+<form enctype="multipart/form-data" method="POST" [formGroup]="fileupload">
+    <label class="text-muted">File Browser</label>
+         <div class="custom-file">
+           <input type="file" class="custom-file-input" name="file"  (change)="fileChange($event)" value="Upload" id="customFile">
+           <label class="custom-file-label" for="customFile">Choose file</label>
+         </div>
+ </form>
+ 

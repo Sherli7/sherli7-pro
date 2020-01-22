@@ -1,0 +1,42 @@
+<h1>Créer un nouveau Dossier</h1>
+<form class="needs-validation" [formGroup]="folderForm" (submit)="onsubmit()" novalidate>
+    <div class="form-group">
+      <label for="uname">Folder Name:</label>
+      <input type="text" class="form-control"  formControlName="name" placeholder="Enter username" name="uname" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div> 
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" name="title" value="My nice folder" formControlName="title">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <label for="description">cm:description</label>
+      <input type="text" class="form-control" name="description"  formControlName="description">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <br>
+
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Folder name</th>
+          <th scope="col">Created By</th>
+          <th scope="col">At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fichier of f">
+          <td><img src="assets/images/icons8_folder_96px.png" alt="">{{fichier.entry.name}}</td>
+            
+            <td><img src="assets/images/icons8_check_male_50px_1.png" alt="" height="30%" width="20%" >{{fichier.entry.createdByUser.id}}</td>
+            <td><img src="assets/images/clock.png" alt="" >{{fichier.entry.createdAt}}</td>
+        </tr>
+       
+      </tbody>
+    </table>

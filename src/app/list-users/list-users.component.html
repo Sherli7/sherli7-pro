@@ -1,0 +1,59 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>avatar</th>
+        <th>Username</th>
+        <th>Lastname</th>
+        <th>Firstname</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="success" *ngFor="let usrs of usr; let i=index">
+        <td>{{i+1}}</td>
+        <td><img src="assets/images/icons8_check_male_50px_1.png" alt=""></td>
+        <td (onChange)="check($event);">{{usrs.userName}}</td>
+        <td>{{usrs.lastName}}</td>
+        <td>{{usrs.firstName}}</td>
+        <td>{{usrs.email}}</td>
+        <td>{{usrs.mobile}}</td>
+       
+        <td>
+          <div class="container" style="display:flex">
+            <div>
+              <button class="btn "> 
+                <!-- <a [routerLink]="['/update-user']" class="nav-link" (onChange)="check($event);" >Update User</a> -->
+                   </button>
+                   <button (click)="updateUser(usrs.userName)" class="btn btn-success">
+                    <img  height="20px" width="25px"  src="assets/images/icons8_delete_100px.png" alt="">
+                </button>
+            </div>
+            <div>
+              <button (click)="updateUser(usrs.userName)" class="btn btn-danger" (passedEvent)="childEvent(usrs.userName);" >
+                 <a [routerLink]="['/list-users',usrs.userName]">Update : {{usrs.userName}}</a>
+              </button>
+            </div>
+
+            <div>
+              
+                <button class="btn btn-success">
+                    <img (click)="deleteRow(usrs.userName)" height="20px" width="25px"  src="assets/images/icons8_delete_100px.png" alt="">
+                </button>
+            </div>
+            <div>
+              
+                <button class="btn btn-primary">
+                    <img (click)="deleteRow(usrs.userName)" height="20px" width="25px"  src="assets/images/icons8_delete_100px.png" alt="">
+                </button>
+            </div>
+          </div>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
